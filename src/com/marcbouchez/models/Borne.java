@@ -14,7 +14,6 @@ public class Borne implements Countable {
     public Borne () {
         this.dateDerniereRevision = LocalDate.now();
         this.indiceCompteurUnites = 0;
-        this.leType = null;
     }
 
     public Integer getDureeRevision() {
@@ -25,6 +24,16 @@ public class Borne implements Countable {
         boolean dateEcoulee = dateDerniereRevision.plusDays(leType.getNbJoursEntreRevisions()).isAfter(LocalDate.now());
         boolean rechargesEcoulees = this.leType.getNbUnitesEntreRevisions() < this.indiceCompteurUnites;
         return dateEcoulee || rechargesEcoulees;
+    }
+
+    @Override
+    public String toString() {
+        return "Borne{" +
+                "id=" + id +
+                ", dateDerniereRevision=" + dateDerniereRevision +
+                ", indiceCompteurUnites=" + indiceCompteurUnites +
+                ", leType=" + leType.getCodeTypeBorne() +
+                '}';
     }
 
     public int getId() {
@@ -59,13 +68,5 @@ public class Borne implements Countable {
         this.leType = leType;
     }
 
-    @Override
-    public String toString() {
-        return "Borne{" +
-                "id=" + id +
-                ", dateDerniereRevision=" + dateDerniereRevision +
-                ", indiceCompteurUnites=" + indiceCompteurUnites +
-                ", leType=" + leType +
-                '}';
-    }
+
 }

@@ -1,12 +1,14 @@
-package com.marcbouchez.services;
+package com.marcbouchez.drivers;
 
+import com.marcbouchez.interfaces.Driver;
 import com.marcbouchez.models.Station;
+import com.marcbouchez.services.UniqueID;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class StationDriver {
+public class StationDriver implements Driver {
 
     private static List<Station> stations = new LinkedList<>();
 

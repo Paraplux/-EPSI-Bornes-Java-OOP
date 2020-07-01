@@ -1,6 +1,6 @@
 package com.marcbouchez.models;
 
-import com.marcbouchez.interfaces.Countable;
+import com.marcbouchez.utils.Countable;
 
 import java.time.LocalDate;
 
@@ -21,7 +21,7 @@ public class Borne implements Countable {
     }
 
     public boolean estAReviser() {
-        boolean dateEcoulee = dateDerniereRevision.plusDays(leType.getNbJoursEntreRevisions()).isAfter(LocalDate.now());
+        boolean dateEcoulee = dateDerniereRevision.plusDays(leType.getNbJoursEntreRevisions()).isBefore(LocalDate.now());
         boolean rechargesEcoulees = this.leType.getNbUnitesEntreRevisions() < this.indiceCompteurUnites;
         return dateEcoulee || rechargesEcoulees;
     }
@@ -36,6 +36,7 @@ public class Borne implements Countable {
                 '}';
     }
 
+    @Override
     public int getId() {
         return id;
     }

@@ -1,6 +1,6 @@
 package com.marcbouchez.models;
 
-import com.marcbouchez.interfaces.Countable;
+import com.marcbouchez.utils.Countable;
 
 public class TypeBorne implements Countable {
 
@@ -11,6 +11,7 @@ public class TypeBorne implements Countable {
     private Integer nbJoursEntreRevisions;
     private Integer nbUnitesEntreRevisions;
 
+    @Override
     public int getId() {
         return id;
     }

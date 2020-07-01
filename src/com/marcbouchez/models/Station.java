@@ -1,6 +1,6 @@
 package com.marcbouchez.models;
 
-import com.marcbouchez.interfaces.Countable;
+import com.marcbouchez.utils.Countable;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -28,6 +28,7 @@ public class Station implements Countable {
         return visite;
     }
 
+    @Override
     public int getId() {
         return id;
     }

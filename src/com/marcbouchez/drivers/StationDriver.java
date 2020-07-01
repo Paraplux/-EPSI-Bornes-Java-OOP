@@ -1,13 +1,17 @@
 package com.marcbouchez.drivers;
 
 import com.marcbouchez.interfaces.Driver;
+import com.marcbouchez.models.Borne;
 import com.marcbouchez.models.Station;
-import com.marcbouchez.services.UniqueID;
+import com.marcbouchez.utils.UniqueID;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Nous permet de gérer les stations sans toucher au model Station
+ */
 public class StationDriver implements Driver {
 
     private static List<Station> stations = new LinkedList<>();
@@ -31,7 +35,6 @@ public class StationDriver implements Driver {
     }
 
     public static void create() {
-        System.out.println("// Méthode créer station lancée");
         System.out.println("Donnez l'emplacement de la station : ");
         String emplacement = new Scanner(System.in).next();
 
@@ -40,15 +43,30 @@ public class StationDriver implements Driver {
         s.setLibelleEmplacement(emplacement);
 
         stations.add(s);
-
-        list();
+        System.out.println("Station créée avec succès.");
     }
 
     public static void list() {
-        System.out.println("// Méthode lister stations lancée");
         for (Station station : stations) {
             System.out.println(station.toString());
         }
+    }
+
+    public static boolean listStationsAReviser() {
+        boolean foundBornesAReviser = false;
+        for (Station station : stations) {
+            for (Borne borne : station.getLesBornes()) {
+                if (borne.estAReviser()) {
+                    System.out.println("La borne " + borne.getId() + " de la station " + station.getLibelleEmplacement() + " nécessite une maintenance");
+                    foundBornesAReviser = true;
+                }
+            }
+        }
+        if (!foundBornesAReviser) {
+            System.out.println("Aucune borne ne nécessite de maintenance.");
+            return false;
+        }
+        return true;
     }
 
     public static List<Station> getStations () {

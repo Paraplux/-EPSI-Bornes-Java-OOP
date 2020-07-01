@@ -4,14 +4,17 @@ import com.marcbouchez.models.Borne;
 import com.marcbouchez.models.Station;
 import com.marcbouchez.interfaces.Driver;
 import com.marcbouchez.models.TypeBorne;
-import com.marcbouchez.services.Search;
-import com.marcbouchez.services.UniqueID;
+import com.marcbouchez.utils.Search;
+import com.marcbouchez.utils.UniqueID;
 
-import java.lang.reflect.Type;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+
+/**
+ * Nous permet de gérer les bornes sans toucher au model Borne
+ */
 public class BorneDriver implements Driver {
 
     private static List<Borne> bornes = new LinkedList<>();
@@ -20,6 +23,7 @@ public class BorneDriver implements Driver {
         //Hydrate with data
         Borne b1 = new Borne();
         b1.setId(1);
+        b1.setIndiceCompteurUnites(1001);
         b1.setLeType( (TypeBorne) Search.withId(1, TypeBorneDriver.getTypeBornes()));
         StationDriver.getStations().get(0).getLesBornes().add(b1);
         bornes.add(b1);

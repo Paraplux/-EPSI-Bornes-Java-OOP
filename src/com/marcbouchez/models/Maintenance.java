@@ -1,6 +1,6 @@
 package com.marcbouchez.models;
 
-import com.marcbouchez.interfaces.Countable;
+import com.marcbouchez.utils.Countable;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class Maintenance implements Countable {
     private List<Technicien> lesTechniciens;
     private List<Visite> lesVisites;
 
-
+    @Override
     public int getId() {
         return id;
     }

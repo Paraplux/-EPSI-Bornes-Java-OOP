@@ -1,6 +1,4 @@
-package com.marcbouchez.services;
-
-import com.marcbouchez.interfaces.Countable;
+package com.marcbouchez.utils;
 
 import java.util.List;
 

@@ -1,14 +1,14 @@
 package com.marcbouchez.drivers;
 
 import com.marcbouchez.interfaces.Driver;
-import com.marcbouchez.models.Borne;
 import com.marcbouchez.models.TypeBorne;
-import com.marcbouchez.services.UniqueID;
 
-import java.lang.reflect.Type;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Nous permet de gérer les types de bornes sans toucher au model TypeBorne
+ */
 public class TypeBorneDriver implements Driver {
     private static List<TypeBorne> typeBornes = new LinkedList<>();
 

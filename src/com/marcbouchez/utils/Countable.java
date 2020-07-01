@@ -1,4 +1,4 @@
-package com.marcbouchez.interfaces;
+package com.marcbouchez.utils;
 
 public interface Countable {
 

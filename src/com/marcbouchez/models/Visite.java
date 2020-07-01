@@ -1,8 +1,10 @@
 package com.marcbouchez.models;
 
+import com.marcbouchez.utils.Countable;
+
 import java.util.List;
 
-public class Visite {
+public class Visite implements Countable {
 
     private int id;
     private Character etat;
@@ -20,6 +22,7 @@ public class Visite {
         }
     }
 
+    @Override
     public int getId () {
         return this.id;
     }

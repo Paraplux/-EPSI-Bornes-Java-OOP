@@ -102,7 +102,7 @@ public class Menu {
 
 
         public void display() {
-            System.out.println(this.choice + ". " + this.entry);
+            System.out.println("    " + this.choice + ". " + this.entry);
         }
     }
 }
